@@ -1,0 +1,68 @@
+﻿<Window x:Class="EmbedSettingPropertyWithAssembly.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EmbedSettingPropertyWithAssembly"
+        mc:Ignorable="d"
+        Name="_main"
+        Title="MainWindow"
+        FontSize="30"
+        Height="700"
+        SizeToContent="Width">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <CheckBox Content="IsRed" 
+                  x:Name="_isRed"
+                  IsChecked="{Binding ElementName=_main,Path=IsRed,Mode=TwoWay}"/>
+        <CheckBox x:Name="_isBig"
+                  Grid.Row="1"
+                  Content="IsBig" 
+                  IsChecked="{Binding ElementName=_mainm,Path=IsBig,Mode=TwoWay}"/>
+        <CheckBox x:Name="_isLong"
+                  Grid.Row="2"
+                  Content="IsLong" 
+                  IsChecked="{Binding ElementName=_main,Path=IsLong,Mode=TwoWay}"/>
+        <CheckBox x:Name="_isBad"
+                  Grid.Row="3"
+                  Content="IsBad" 
+                  IsChecked="{Binding ElementName=_main,Path=IsBad,Mode=TwoWay}"/>
+        <CheckBox x:Name="_isAdorable"
+                  Grid.Row="4"
+                  Content="IsAdorbable" 
+                  IsChecked="{Binding ElementName=_main,Path=IsAdorable,Mode=TwoWay}"/>
+        <Separator Grid.Row="5"/>
+        <TextBox Name="_tbEmail"
+                 Background="#ffffaa"
+                 MinWidth="300"
+                 Grid.Row="6" />
+        <Button Name="btnAdd"
+                Margin="3"
+                Background="#00ff00"
+                Grid.Row="7"
+                Width="80"
+                Click="btnAdd_Click"
+                HorizontalAlignment="Right" 
+                Content="Add"/>
+        <ListBox x:Name="_lbEmail" 
+                 Grid.Row="8"
+                 ItemsSource="{Binding ElementName=_main,Path=MailList,Mode=TwoWay}"/>
+        <Separator Grid.Row="9" />
+        <ListBox x:Name="_lbEmailSub"
+                 Grid.Row="10"
+                 ItemsSource="{Binding ElementName=_lbEmail,Path=ItemsSource,Mode=TwoWay}"
+                 Control.MouseDoubleClick="_lbEmailSub_MouseDoubleClick"/>
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿<Window x:Class="WebBrowserSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebBrowserSample"
+        xmlns:Browers="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Browers:ChromiumWebBrowser Address="http://indradhanu-clinic.com/%e1%9e%91%e1%9f%86%e1%9e%93%e1%9e%b6%e1%9e%80%e1%9f%8b%e1%9e%91%e1%9f%86%e1%9e%93%e1%9e%84/"
+                                    FontFamily="Times New Roman"
+                                    FontSize="16"/>
+    </Grid>
+</Window>
