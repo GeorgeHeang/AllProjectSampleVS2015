@@ -1,0 +1,145 @@
+﻿<Window x:Class="ConnectDatabaseWithNetwork.LogIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConnectDatabaseWithNetwork"
+        mc:Ignorable="d"
+        Title="LogIn" Height="260" Width="380.844"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid>
+        <DockPanel Margin="0,70,0,0" Background="LightGray"
+                   Opacity="0.6"/>
+        <DockPanel Margin="0,70,0,0"
+                   Background="Transparent">
+            <Grid TextElement.FontSize="16">
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="TextAlignment" Value="Left"/>
+                        <Setter Property="Foreground">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientStop Offset="0" Color="Black"/>
+                                    <GradientStop Offset="0.3" Color="Yellow"/>
+                                    <GradientStop Offset="0.4" Color="Black"/>
+                                    <GradientStop Offset="1" Color="Linen"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="AUto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Margin="10" Text="Server"
+                           Grid.Row="1"
+                           TextAlignment="Center"/>
+                <TextBlock Margin="10" Text="User ID"
+                           Grid.Row="2"
+                           TextAlignment="Center"/>
+                <TextBlock Margin="10" Text="Password"
+                           Grid.Row="3"
+                           TextAlignment="Center"/>
+                <TextBox x:Name="tbServer"
+                         Grid.Column="1"
+                         Grid.Row="1"
+                         Margin="0 10"/>
+                <ComboBox x:Name="ComboBoxServerName"
+                          Grid.Column="1"
+                          Grid.Row="1"
+                          Margin="0 10"
+                          GotFocus="ComboBoxServerName_GotFocus"
+                          Visibility="Collapsed"/>
+                <TextBox x:Name="tbUserID"
+                         Grid.Column="1"
+                         Grid.Row="2"
+                         Margin="0 10"/>
+                <PasswordBox x:Name="tbPassword"
+                         Grid.Column="1"
+                         Grid.Row="3"
+                         Margin="0 10"/>
+                <Button Content="Connect"
+                        Grid.Column="2"
+                        Grid.Row="3"
+                        Margin="5 10"
+                        Width="80"
+                        Click="ButtonConnectClick"/>
+
+            </Grid>
+        </DockPanel>
+        <Image HorizontalAlignment="Right"
+               VerticalAlignment="Top"
+               Width="100"
+               Height="100"
+               Margin="0 0 0 0">
+            <Image.Source>
+                <DrawingImage xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    <DrawingImage.Drawing>
+                        <DrawingGroup Opacity="1">
+                            <DrawingGroup.Children>
+                                <GeometryDrawing Brush="#ffff" Pen="{x:Null}">
+                                    <GeometryDrawing.Geometry>
+                                        <PathGeometry FillRule="Nonzero" Figures="M14.5,3C17.5,3 20,5.5 20,8.5 20,9.60000038146973 19.7000007629395,10.6000003814697 19.1000003814697,11.5 21.5,13.3000001907349 23.2000007629395,16.3999996185303 23.7999992370605,20L5.19999980926514,20C5.80000019073486,16.3999996185303 7.5,13.3000001907349 9.89999961853027,11.5 9.30000019073486,10.6999998092651 9,9.60000038146973 9,8.5 9,5.5 11.5,3 14.5,3z" />
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup.Children>
+                        </DrawingGroup>
+                    </DrawingImage.Drawing>
+                </DrawingImage>
+            </Image.Source>
+        </Image>
+        <Button Width="25"
+                Height="25"
+                Margin="0 40 0 0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                BorderBrush="{x:Null}"
+                Click="Button_Click">
+            <Image>
+                <Image.Source>
+                    <DrawingImage xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                        <DrawingImage.Drawing>
+                            <DrawingGroup Opacity="1">
+                                <DrawingGroup.Children>
+                                    <DrawingGroup Opacity="1">
+                                        <DrawingGroup.Children>
+                                            <GeometryDrawing Brush="Red" Pen="{x:Null}">
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="Nonzero" Figures="M1.10000014305115,0.99999988079071C1.29999995231628,0.800000011920929,1.60000002384186,0.800000011920929,1.80000007152557,0.99999988079071L24.3999996185303,22.8999996185303C24.6000003814697,23,24.6000003814697,23.3999996185303,24.3999996185303,23.6000003814697L24,24C23.7999992370605,24.2000007629395,23.5,24.2000007629395,23.2999992370605,24L0.599999904632568,2.20000004768372C0.400000005960464,2,0.400000005960464,1.70000004768372,0.599999904632568,1.50000011920929L1.10000014305115,0.99999988079071z" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup.Children>
+                                    </DrawingGroup>
+                                    <DrawingGroup Opacity="1">
+                                        <DrawingGroup.Children>
+                                            <GeometryDrawing Brush="Red" Pen="{x:Null}">
+                                                <GeometryDrawing.Geometry>
+                                                    <PathGeometry FillRule="Nonzero" Figures="M22.8999996185303,0.599999904632568C23.1000003814697,0.400000005960464,23.3999996185303,0.400000005960464,23.6000003814697,0.599999904632568L24.1000003814697,1.10000014305115C24.2999992370605,1.29999995231628,24.2999992370605,1.60000002384186,24.1000003814697,1.80000007152557L2.20000004768372,24.3999996185303C2,24.6000003814697,1.70000004768372,24.6000003814697,1.50000011920929,24.3999996185303L0.999999821186066,24C0.800000011920929,23.7999992370605,0.800000011920929,23.5,0.999999821186066,23.2999992370605L22.8999996185303,0.599999904632568z" />
+                                                </GeometryDrawing.Geometry>
+                                            </GeometryDrawing>
+                                        </DrawingGroup.Children>
+                                    </DrawingGroup>
+                                </DrawingGroup.Children>
+                            </DrawingGroup>
+                        </DrawingImage.Drawing>
+                    </DrawingImage>
+                </Image.Source>
+            </Image>
+        </Button>
+        
+
+    </Grid>
+</Window>

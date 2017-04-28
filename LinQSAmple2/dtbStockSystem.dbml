@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="StockSystem" Class="dtbStockSystemDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=george;Initial Catalog=StockSystem;Integrated Security=True" SettingsObjectName="LinQSAmple2.Properties.Settings" SettingsPropertyName="StockSystemConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.TblEmp" Member="TblEmps">
+    <Type Name="TblEmp">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HiredDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[Function]" Member="Function" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Salary" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Picture" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="TblEmp_Sale" Member="Sales" ThisKey="EmployeeID" OtherKey="Seller" Type="Sale" />
+      <Association Name="TblEmp_Purchase" Member="Purchases" ThisKey="EmployeeID" OtherKey="Purchaser" Type="Purchase" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sales" Member="Sales">
+    <Type Name="Sale">
+      <Column Name="InvoiceNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InvoiceDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Seller" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SoldTo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Sale_Sale_Detail" Member="Sale_Details" ThisKey="InvoiceNo" OtherKey="InvoiceNo" Type="Sale_Detail" />
+      <Association Name="TblEmp_Sale" Member="TblEmp" ThisKey="Seller" OtherKey="EmployeeID" Type="TblEmp" IsForeignKey="true" />
+      <Association Name="Customer_Sale" Member="Customer" ThisKey="SoldTo" OtherKey="CustomerID" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sale_Details" Member="Sale_Details">
+    <Type Name="Sale_Detail">
+      <Column Name="InvoiceNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Sale_Sale_Detail" Member="Sale" ThisKey="InvoiceNo" OtherKey="InvoiceNo" Type="Sale" IsForeignKey="true" />
+      <Association Name="Product_Sale_Detail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Purchases" Member="Purchases">
+    <Type Name="Purchase">
+      <Column Name="PurcharseNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DatePurchase" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Supplyer" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Purchaser" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Purchase_Purchase_Detail" Member="Purchase_Details" ThisKey="PurcharseNo" OtherKey="PurchaseNo" Type="Purchase_Detail" />
+      <Association Name="TblEmp_Purchase" Member="TblEmp" ThisKey="Purchaser" OtherKey="EmployeeID" Type="TblEmp" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Purchase_Details" Member="Purchase_Details">
+    <Type Name="Purchase_Detail">
+      <Column Name="PurchaseNo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Balance" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Purchase_Purchase_Detail" Member="Purchase" ThisKey="PurchaseNo" OtherKey="PurcharseNo" Type="Purchase" IsForeignKey="true" />
+      <Association Name="Product_Purchase_Detail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Supplyers" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SalePrice" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="QtyOnHand" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Product_Sale_Detail" Member="Sale_Details" ThisKey="ProductID" OtherKey="ProductID" Type="Sale_Detail" />
+      <Association Name="Product_Purchase_Detail" Member="Purchase_Details" ThisKey="ProductID" OtherKey="ProductID" Type="Purchase_Detail" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CustomerName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Region" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="AmountBalance" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="Customer_Sale" Member="Sales" ThisKey="CustomerID" OtherKey="SoldTo" Type="Sale" />
+    </Type>
+  </Table>
+</Database>

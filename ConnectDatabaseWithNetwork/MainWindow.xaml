@@ -1,0 +1,431 @@
+﻿<Window x:Class="ConnectDatabaseWithNetwork.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConnectDatabaseWithNetwork"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="MainWindow" MaxHeight="600" MaxWidth="1000"
+        >
+    <Border BorderThickness="10" BorderBrush="#00603d">
+        <Grid Margin="5" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Background="#010933">
+                <ToggleButton Background="Transparent"
+                              HorizontalAlignment="Left"
+                              Click="ToggleButton_Click"
+                              Name="ToggleButtonShow"
+                              ToolTip="Click to show the menu content.">
+                    <Grid>
+                        <Image Margin="10">
+                            <Image.Source>
+                                <DrawingImage xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                    <DrawingImage.Drawing>
+                                        <DrawingGroup Opacity="1">
+                                            <DrawingGroup.Children>
+                                                <GeometryDrawing Brush="#ffffff" Pen="{x:Null}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M1.5,5.96046447753906E-08L17.5,5.96046447753906E-08C18.328426361084,0 19,0.671572864055634 19,1.5 19,2.32842707633972 18.328426361084,3 17.5,3L1.5,3C0.671572864055634,3 0,2.32842707633972 0,1.5 0,0.671572864055634 0.671572864055634,0 1.5,5.96046447753906E-08z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                                <GeometryDrawing Brush="#FFffff" Pen="{x:Null}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M1.5,6L17.5,6C18.328426361084,6 19,6.6715726852417 19,7.5 19,8.3284273147583 18.328426361084,9 17.5,9L1.5,9C0.671572864055634,9 0,8.3284273147583 0,7.5 0,6.6715726852417 0.671572864055634,6 1.5,6z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                                <GeometryDrawing Brush="#FFffff" Pen="{x:Null}">
+                                                    <GeometryDrawing.Geometry>
+                                                        <PathGeometry FillRule="Nonzero" Figures="M1.5,12L17.5,12C18.328426361084,12 19,12.6715726852417 19,13.5 19,14.3284273147583 18.328426361084,15 17.5,15L1.5,15C0.671572864055634,15 0,14.3284273147583 0,13.5 0,12.6715726852417 0.671572864055634,12 1.5,12z" />
+                                                    </GeometryDrawing.Geometry>
+                                                </GeometryDrawing>
+                                            </DrawingGroup.Children>
+                                        </DrawingGroup>
+                                    </DrawingImage.Drawing>
+                                </DrawingImage>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+
+                </ToggleButton>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Name="GridImageButtons"
+                          HorizontalAlignment="Left">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ToggleButton Background="Transparent"
+                                      BorderThickness="0"
+                                      Name="ToggleStudentReg"
+                                      Checked="ToggleStudentReg_Checked"
+                                      Unchecked="ToggleStudentReg_Unchecked">
+                            <Image Margin="10">
+                                <Image.Source>
+                                    <DrawingImage xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                        <DrawingImage.Drawing>
+                                            <DrawingGroup Opacity="1">
+                                                <DrawingGroup.Children>
+                                                    <GeometryDrawing Brush="#FFffff" Pen="{x:Null}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M9,3C11.1999998092651,3 13,4.80000019073486 13,7 13,8.5 12.1000003814697,9.80000019073486 10.8999996185303,10.5 13.1000003814697,11.6999998092651 14.6999998092651,15 15,19L3.09999990463257,19C3.40000009536743,15 5,11.6999998092651 7.09999990463257,10.5 5.90000009536743,9.80000019073486 5,8.5 5,7 5,4.80000019073486 6.80000019073486,3 9,3z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="#FFeeee" Pen="{x:Null}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M14,15L16.2999992370605,15 24,15 24,21 14,21 14,15z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="#FFeeee" Pen="{x:Null}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" Figures="M17.2999992370605,12.5C17.5,12.5 20.2000007629395,12.5 20.7999992370605,12.5 21.3999996185303,12.5 21.3999996185303,13.1000003814697 21.3999996185303,13.1000003814697L21.3999996185303,15 16.6000003814697,15 16.6000003814697,13.3000001907349C16.6000003814697,13.3000001907349,16.5,12.5,17.2999992370605,12.5z" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="#dddddd" Pen="{x:Null}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                    <GeometryDrawing Brush="#FFffff" Pen="{x:Null}">
+                                                        <GeometryDrawing.Geometry>
+                                                            <PathGeometry FillRule="Nonzero" />
+                                                        </GeometryDrawing.Geometry>
+                                                    </GeometryDrawing>
+                                                </DrawingGroup.Children>
+                                            </DrawingGroup>
+                                        </DrawingImage.Drawing>
+                                    </DrawingImage>
+                                </Image.Source>
+                            </Image>
+                        </ToggleButton>
+                    </Grid>
+                    <Grid TextBlock.FontSize="20"
+                          Visibility="Collapsed"
+                          Name="GridTextBlockImageButtons"
+                          Margin="9 0 9 0"
+                          Grid.Column="1"
+                          TextBlock.Foreground="White"
+                          TextBlock.FontWeight="Bold">
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   Name="TextBlocShowReg"
+                                   MouseLeftButtonDown="TextBlock_MouseLeftButtonDown">
+                        Student Registeration
+                        </TextBlock>
+                    </Grid>
+                    
+                </Grid>
+            </StackPanel>
+            <DockPanel Grid.Column="1"
+                       Name="PanelStudentRegisteration"
+                       Visibility="Collapsed">
+                <DockPanel.Resources>
+                    <Style TargetType="ComboBox">
+                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    </Style>
+                </DockPanel.Resources>
+                <TextBlock FontSize="40"
+                           FontWeight="Bold"
+                           DockPanel.Dock="Top"
+                           HorizontalAlignment="Center"
+                           Name="TextBlockTitle">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush Opacity="1">
+                            <GradientStop Offset="0.1" Color="Red"/>
+                            <GradientStop Offset="0.5" Color="Blue"/>
+                            <GradientStop Offset="0.75" Color="Green"/>
+                            <GradientStop Offset="1" Color="Yellow"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                    Student Registration
+                </TextBlock>
+                <Grid TextBlock.Foreground="Red"
+                      Margin="20 0 20 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="TextAlignment" Value="Justify"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Foreground">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                        <GradientStop Offset="0" Color="Brown"/>
+                                        <GradientStop Offset="0.5" Color="Green"/>
+                                        <GradientStop Offset="1" Color="Yellow"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="Margin" Value="20 10"/>
+                            <Setter Property="VerticalContentAlignment" Value="Center"/>
+                            <Setter Property="Foreground">
+                                <Setter.Value>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                        <GradientStop Offset="0" Color="Pink"/>
+                                        <GradientStop Offset=".5" Color="Blue"/>
+                                        <GradientStop Offset="0.7" Color="Silver"/>
+                                        <GradientStop Offset="1" Color="Red"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                        <ControlTemplate x:Key="buttonTemplate"
+                                     TargetType="{x:Type Button}">
+                            <Grid>
+                                <Ellipse x:Name="outerCircle">
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="0,0"
+                                                         EndPoint="0,1">
+                                            <GradientStop Offset="0" 
+                                                      Color="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Background.Color}"/>
+                                            <GradientStop Offset="0.5" Color="Green"/>
+                                            <GradientStop Offset="1" Color="Red"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <Ellipse RenderTransformOrigin=".5,.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform ScaleX=".8" ScaleY=".8"/>
+                                    </Ellipse.RenderTransform>
+                                    <Ellipse.Fill>
+                                        <LinearGradientBrush StartPoint="0,0"
+                                                         EndPoint="0,1">
+                                            <GradientStop Offset="0" Color="White"/>
+                                            <GradientStop Offset="0.5" Color="Yellow"/>
+                                            <GradientStop Offset="1" Color="Transparent"/>
+                                        </LinearGradientBrush>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <Viewbox>
+                                    <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                                </Viewbox>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="outerCircle"
+                                        Property="Fill">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                                <GradientStop Offset="0" Color="Brown"/>
+                                                <GradientStop Offset="0.5" Color="White"/>
+                                                <GradientStop Offset="1" Color="Blue"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="RenderTransform">
+                                        <Setter.Value>
+                                            <ScaleTransform ScaleX=".9"
+                                                        ScaleY=".9"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="RenderTransformOrigin"
+                                        Value=".5,.5"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                        
+                    </Grid.Resources>
+                    
+                    <!--#region TextBlock-->
+                    <!--Column 0-->
+                    <TextBlock>&#160;&#160;&#160;Surname</TextBlock>
+                    <TextBlock Grid.Row="1">&#160;&#160;&#160;Name</TextBlock>
+                    <TextBlock Grid.Row="2">&#160;&#160;&#160;Sex</TextBlock>
+                    <TextBlock Grid.Row="3">&#160;&#160;&#160;Date of Birth&#160;</TextBlock>
+                    <TextBlock Grid.Row="4">&#160;&#160;&#160;Address&#160;</TextBlock>
+                    <TextBlock Grid.Row="6">&#160;&#160;&#160;Major&#160;</TextBlock>
+                    <TextBlock Grid.Row="5">&#160;&#160;&#160;Phone&#160;</TextBlock>
+                    <!--Column 1-->
+                    <TextBlock Grid.Column="1">:&#160;</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1">:&#160;</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="2">:&#160;</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="3">:&#160;</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="4">:&#160;</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="5">:&#160;</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="6">:&#160;</TextBlock>
+                    <!--#endregion-->
+                    <!--Column 2-->
+                    <TextBox Grid.Column="2"
+                             x:Name="tbSurname"/>
+                    <TextBox Grid.Column="2" Grid.Row="1"
+                             x:Name="tbName"/>
+                    <StackPanel Grid.Column="2" Grid.Row="2"
+                                Orientation="Horizontal">
+                        <CheckBox Content="Male"
+                                  FontSize="30"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  Margin="20 0 0 0"
+                                  Name="CheckBoxMale"
+                                  Checked="CheckBoxMale_Checked"/>
+                        <CheckBox Content="Female"
+                                  FontSize="30"
+                                  VerticalAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  Margin="50 0 0 0"
+                                  Name="CheckBoxFemale"
+                                  Checked="CheckBoxMale_Checked"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="3"
+                                Orientation="Horizontal"
+                                TextBlock.Foreground="Black"
+                                Grid.ColumnSpan="2"
+                                Margin="20 10"
+                                >
+                        <TextBlock Text="Day :" Background="Transparent"/>
+                        <ComboBox Grid.Column="2" Grid.Row="6"
+                                  Margin="20 0"
+                                  FontSize="20"
+                                  IsTextSearchEnabled="True"
+                                  x:Name="ComboBoxDay">
+                            <ComboBoxItem IsSelected="True">01</ComboBoxItem>
+                            <ComboBoxItem>02</ComboBoxItem>
+                            <ComboBoxItem>03</ComboBoxItem>
+                            <ComboBoxItem>04</ComboBoxItem>
+                            <ComboBoxItem>05</ComboBoxItem>
+                            <ComboBoxItem>06</ComboBoxItem>
+                            <ComboBoxItem>07</ComboBoxItem>
+                            <ComboBoxItem>08</ComboBoxItem>
+                            <ComboBoxItem>09</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                            <ComboBoxItem>21</ComboBoxItem>
+                            <ComboBoxItem>22</ComboBoxItem>
+                            <ComboBoxItem>23</ComboBoxItem>
+                            <ComboBoxItem>24</ComboBoxItem>
+                            <ComboBoxItem>25</ComboBoxItem>
+                            <ComboBoxItem>26</ComboBoxItem>
+                            <ComboBoxItem>27</ComboBoxItem>
+                            <ComboBoxItem>28</ComboBoxItem>
+                            <ComboBoxItem>29</ComboBoxItem>
+                            <ComboBoxItem>30</ComboBoxItem>
+                            <ComboBoxItem>31</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Month :" Background="Transparent"/>
+                        <ComboBox Grid.Column="2" Grid.Row="6"
+                                  Margin="20 0"
+                                  FontSize="20"
+                                  x:Name="ComboBoxMonth">
+                            <ComboBoxItem IsSelected="True">January</ComboBoxItem>
+                            <ComboBoxItem>February</ComboBoxItem>
+                            <ComboBoxItem>March</ComboBoxItem>
+                            <ComboBoxItem>April</ComboBoxItem>
+                            <ComboBoxItem>May</ComboBoxItem>
+                            <ComboBoxItem>June</ComboBoxItem>
+                            <ComboBoxItem>July</ComboBoxItem>
+                            <ComboBoxItem>August</ComboBoxItem>
+                            <ComboBoxItem>September</ComboBoxItem>
+                            <ComboBoxItem>October</ComboBoxItem>
+                            <ComboBoxItem>November</ComboBoxItem>
+                            <ComboBoxItem>December</ComboBoxItem>
+                        </ComboBox>
+
+                        <TextBlock Text="Year :" Background="Transparent"/>
+                        <ComboBox Grid.Column="2" Grid.Row="6"
+                                  Margin="20 0"
+                                  FontSize="20"
+                                  IsTextSearchEnabled="True"
+                                  Name="ComboBoxYear">
+                        </ComboBox>
+
+                    </StackPanel>
+                    <TextBox Grid.Column="2" Grid.Row="4"
+                             x:Name="tbAddress"/>
+                    <TextBox Grid.Column="2" Grid.Row="5"
+                             x:Name="tbPhone"/>
+                    <ComboBox Grid.Column="2" Grid.Row="6"
+                              Margin="20 10"
+                              FontSize="20"
+                              x:Name="cbMajor">
+                        <ComboBoxItem>IT</ComboBoxItem>
+                        <ComboBoxItem>Architect</ComboBoxItem>
+                        <ComboBoxItem>English</ComboBoxItem>
+                        <ComboBoxItem>Law</ComboBoxItem>
+                    </ComboBox>
+                    <Button Grid.Column="3"
+                            Grid.Row="6"
+                            FontSize="50"
+                            Foreground="Black"
+                            Template="{StaticResource buttonTemplate}"
+                            Click="Button_Click">
+                        Save
+                    </Button>
+                </Grid>
+            </DockPanel>
+            <DockPanel Grid.Column="1"
+                       Visibility="Visible"
+                       x:Name="PanelStudentList">
+                <TextBlock FontSize="40"
+                           FontWeight="Bold"
+                           DockPanel.Dock="Top"
+                           HorizontalAlignment="Center">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush Opacity="1">
+                            <GradientStop Offset="0.1" Color="Red"/>
+                            <GradientStop Offset="0.5" Color="Blue"/>
+                            <GradientStop Offset="0.75" Color="Green"/>
+                            <GradientStop Offset="1" Color="Yellow"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                    Student List
+                </TextBlock>
+                <Button DockPanel.Dock="Top"
+                        Content="Refresh"
+                        Width="110"
+                        FontSize="30"
+                        Click="Button_Click_1"/>
+                <!--<Button DockPanel.Dock="Top"
+                        Click="Button_Click_2"
+                        Content="Delete"
+                        FontSize="30"
+                        Width="100"/>-->
+                <DataGrid x:Name="Datagrid"
+                          Background="Pink"
+                          AutoGenerateColumns="True"
+                          CanUserResizeColumns="False"
+                          IsReadOnly="True"/>
+
+            </DockPanel>
+        </Grid>
+    </Border>
+</Window>
