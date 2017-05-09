@@ -6,7 +6,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Converters:BooleanToGetContentAsBackground x:Key="ConverterBackgorund" />
-        <Converters:RGBConverter x:Key="RGBColorConverter" />
+        <!--<Converters:RGBConverter x:Key="RGBColorConverter" />-->
 
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
